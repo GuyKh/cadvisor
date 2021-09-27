@@ -55,7 +55,7 @@ output_file="$PWD/cadvisor"
 pushd cmd > /dev/null
 if [ -z "$GOARCH" ]
 then
-  go build ${GO_FLAGS} -ldflags "${ldflags}" -o "${output_file}" "${repo_path}/cmd"
+  go build GOARCH=arm ${GO_FLAGS} -ldflags "${ldflags}" -o "${output_file}" "${repo_path}/cmd"
 else
   env GOOS=linux GOARCH=$GOARCH go build ${GO_FLAGS} -ldflags "${ldflags}" -o "${output_file}" "${repo_path}/cmd"
 fi
